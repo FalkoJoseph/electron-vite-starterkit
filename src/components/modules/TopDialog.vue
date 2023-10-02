@@ -1,12 +1,12 @@
 <template>
   <Transition name="dialog">
     <div
-      class="absolute left-0 top-0 z-50 w-full"
+      class="pointer-events-none fixed left-0 top-[53px] z-50 w-full"
       v-if="$store.topDialog.active"
       :class="[warning ? 'wiggle' : '']"
     >
       <div
-        class="mx-auto max-w-xl rounded-b-md border-b border-l border-r border-black/30 bg-gray-800/90 shadow-xl backdrop-blur-xl"
+        class="pointer-events-auto mx-auto max-w-xl rounded-b-md border-b border-l border-r border-black/30 bg-gray-800/90 shadow-xl backdrop-blur-xl"
       >
         <div class="p-5">
           <p class="text-base font-bold capitalize">
@@ -24,13 +24,15 @@
   </Transition>
 
   <div
-    class="absolute left-0 top-0 z-40 h-full w-full"
+    class="fixed left-0 top-0 z-40 h-full w-full"
     v-if="$store.topDialog.active"
     @click="warn"
   ></div>
 </template>
 
 <script>
+import { useTopDialogStore } from "../../stores/topDialog";
+
 export default {
   data() {
     return {
@@ -46,6 +48,9 @@ export default {
       }, 500);
     },
   },
+  created() {
+    this.$store.topDialog = useTopDialogStore();
+  },
 };
 </script>
 
@@ -57,7 +62,7 @@ export default {
 
 .dialog-enter-from,
 .dialog-leave-to {
-  @apply -translate-y-[110%];
+  @apply -translate-y-[200%];
 }
 
 .wiggle {

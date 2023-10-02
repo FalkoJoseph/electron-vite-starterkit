@@ -53,9 +53,6 @@ export default {
   & input {
     @apply h-7 w-full appearance-none rounded-md border-0 bg-gray-700/80 px-3 pb-0.5 text-sm font-medium focus:outline-none;
 
-    box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.1),
-      0 1px 2px rgba(0, 0, 0, 0.2);
-
     &:focus {
       box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.1),
         0 0 0 3px theme("colors.primary.500");

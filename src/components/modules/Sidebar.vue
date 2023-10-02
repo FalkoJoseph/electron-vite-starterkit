@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { useSidebarStore } from "../../stores/sidebar";
+
 import VueResizable from "vue-resizable";
 
 export default {
@@ -39,6 +41,9 @@ export default {
     resizeSidebarEnd() {
       document.body.classList.remove("resize-active");
     },
+  },
+  created() {
+    this.$store.sidebar = useSidebarStore();
   },
 };
 </script>

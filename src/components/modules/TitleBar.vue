@@ -1,9 +1,9 @@
 <template>
   <div
-    class="title-drag relative z-10 flex min-h-[52px] items-center justify-between px-3 text-center text-sm text-white/80 transition-all duration-100 hover:shadow"
+    class="title-drag relative z-10 flex min-h-[53px] items-center justify-between px-3 text-center text-sm text-white/80 transition-all duration-100 hover:shadow"
     :class="[
       hasBorder ? 'border-b border-white/10' : '',
-      hasBackground ? 'border-b border-black bg-gray-700/70' : 'bg-gray-900/80',
+      hasBackground ? 'border-b border-black bg-gray-700/70' : 'bg-gray-800',
       subTitle ? 'py-2' : 'p-1',
     ]"
   >

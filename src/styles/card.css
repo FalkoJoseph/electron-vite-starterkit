@@ -1,0 +1,10 @@
+.card:active,
+.card.is-active {
+  & .card-text {
+    @apply shadow-3d;
+  }
+}
+
+.card-frame {
+  @apply shadow-3d-light bg-control-light;
+}

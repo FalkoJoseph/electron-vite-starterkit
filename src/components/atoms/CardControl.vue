@@ -50,9 +50,6 @@ export default {
 .card.is-active {
   & .card-text {
     @apply bg-primary-500;
-
-    box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.1),
-      0 1px 2px rgba(0, 0, 0, 0.6);
   }
 
   & .card-frame {
@@ -61,10 +58,7 @@ export default {
 }
 
 .card-frame {
-  @apply mb-4 rounded-md bg-white/5;
-
-  box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.05),
-    0 1px 2px rgba(0, 0, 0, 0.1);
+  @apply mb-4 rounded-md;
 }
 
 .card-text {
