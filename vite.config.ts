@@ -15,7 +15,13 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [
-      vue(),
+      vue({
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => ['ion-icon', 'element-plus/global'].includes(tag),
+          }
+        }
+      }),
       electron([
         {
           // Main-Process entry file of the Electron App.

@@ -1,0 +1,52 @@
+.btn,
+.el-radio-button {
+  @apply inline-block h-7 px-6 rounded-md text-sm font-medium leading-none relative cursor-default transition duration-100 ease-in-out;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  box-shadow: 
+    inset 0 1px 0 0px rgba(255, 255, 255, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-icon {
+  @apply px-3;
+
+  & ion-icon {
+    @apply text-xl mt-0.5;
+  }
+}
+
+.btn-default,
+.el-radio-button {
+  @apply bg-white/10 active:bg-primary-500 disabled:active:bg-white/10 text-white;
+}
+
+.btn-primary,
+.el-radio-button.is-active {
+  @apply bg-primary-500 active:bg-primary-600 text-white;
+}
+
+.btn-secondary {
+  @apply bg-yellow-400 active:bg-yellow-500 text-black;
+}
+
+.btn-transparent {
+  @apply bg-transparent hover:bg-white/10 active:bg-white/20 text-white/70 shadow-none px-3 active:text-white/50;
+}
+
+.btn-border {
+  @apply bg-transparent hover:bg-white/10 active:bg-white/20 text-white/70 px-3;
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}

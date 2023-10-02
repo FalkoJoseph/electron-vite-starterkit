@@ -45,9 +45,10 @@ async function createWindow() {
     title: 'Main window',
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     titleBarStyle: 'hidden',
-    vibrancy: 'sidebar',
-    minWidth: 500,
-    minHeight: 400,
+    vibrancy: "sidebar",
+    minWidth: 600,
+    minHeight: 600,
+    trafficLightPosition: { x: 15, y: 18 },
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production

@@ -5,3 +5,8 @@
 
 /* Core */
 @import "styles/system.css";
+@import "styles/buttons.css";
+@import "styles/switch.css";
+@import "styles/tab.css";
+@import "styles/progress.css";
+@import "styles/slider.css";
