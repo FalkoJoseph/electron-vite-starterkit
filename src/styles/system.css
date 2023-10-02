@@ -11,6 +11,11 @@ body {
   }
 }
 
+/* Links */
+a {
+  cursor: default;
+}
+
 /* Backgrounds */
 
 .bg-control {

@@ -18,7 +18,7 @@
 
     <!-- Main -->
     <main-frame>
-      <router-view></router-view>
+      <router-view />
     </main-frame>
   </div>
 </template>

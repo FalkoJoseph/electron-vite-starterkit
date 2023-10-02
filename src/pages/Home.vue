@@ -2,7 +2,7 @@
   <!-- Titlebar -->
   <title-bar
     title="Dark UI"
-    sub-title="Dark UI for Electron"
+    sub-title="Components"
     :has-border="false"
     :has-background="true"
   >
