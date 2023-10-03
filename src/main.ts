@@ -9,6 +9,7 @@ import "element-plus/dist/index.css";
 
 import Home from "./pages/Home/View.vue"
 import HelloWorld from "./pages/HelloWorld/View.vue"
+import Media from "./pages/Media/View.vue"
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: "/hello-world",
     component: HelloWorld,
     name: "hello-world",
+  },
+  {
+    path: "/media",
+    component: Media,
+    name: "media",
   },
 ]
 

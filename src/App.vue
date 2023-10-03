@@ -15,6 +15,11 @@
               Hello world
             </RouterLink>
           </li>
+          <li>
+            <RouterLink draggable="false" :to="{ name: 'media' }">
+              Media
+            </RouterLink>
+          </li>
         </ul>
         <div class="h-[500px]"></div>
       </template>
