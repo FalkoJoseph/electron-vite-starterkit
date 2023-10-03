@@ -34,21 +34,9 @@
 </template>
 
 <script>
-import { heartOutline, chevronBackOutline, menuOutline } from "ionicons/icons";
-import { IonIcon } from "@ionic/vue";
-
 import { useTitlebarStore } from "../../stores/titlebar";
 
 export default {
-  data() {
-    return {
-      heartOutline,
-      chevronBackOutline,
-      menuOutline,
-    };
-  },
-  computed: {},
-  methods: {},
   created() {
     this.$store.titlebar = useTitlebarStore();
   },
