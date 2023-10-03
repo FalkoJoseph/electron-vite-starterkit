@@ -11,8 +11,8 @@
             </RouterLink>
           </li>
           <li>
-            <RouterLink draggable="false" :to="{ name: 'hello-world' }">
-              Hello world
+            <RouterLink draggable="false" :to="{ name: 'wishlist' }">
+              Wishlist
             </RouterLink>
           </li>
           <li>
@@ -50,7 +50,7 @@ ul {
 }
 
 li a {
-  @apply block rounded-md px-2 py-1 font-medium;
+  @apply block truncate rounded-md px-2 py-1 font-medium;
 
   &.router-link-active {
     @apply bg-white/10;

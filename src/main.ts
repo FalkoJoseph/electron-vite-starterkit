@@ -8,7 +8,7 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 
 import Home from "./pages/Home/View.vue"
-import HelloWorld from "./pages/HelloWorld/View.vue"
+import Wishlist from "./pages/Wishlist/View.vue"
 import Media from "./pages/Media/View.vue"
 
 const routes = [
@@ -18,9 +18,9 @@ const routes = [
     name: "home",
   },
   {
-    path: "/hello-world",
-    component: HelloWorld,
-    name: "hello-world",
+    path: "/wishlist",
+    component: Wishlist,
+    name: "wishlist",
   },
   {
     path: "/media",
