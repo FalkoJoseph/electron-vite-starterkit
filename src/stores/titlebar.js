@@ -9,7 +9,7 @@ export const useTitlebarStore = defineStore("titlebar", {
     center: null,
   }),
   actions: {
-    setTitlebar(args) {
+    set(args) {
       this.hasBorder = args.hasBorder;
       this.hasBackground = args.hasBackground;
       this.left = args.left;

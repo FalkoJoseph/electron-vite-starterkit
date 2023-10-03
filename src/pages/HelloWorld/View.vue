@@ -1,21 +1,15 @@
 <template>
   <WindowFrame>
-    <template #main>
-      <div class="p-5">
-        <p>Hello world</p>
-
-        <button class="btn btn-default" @click="$store.topDialog.show()">
-          Dialog
-        </button>
-      </div>
-    </template>
+    <div class="p-5">
+      <p>Creativity is just connecting things - Steve Jobs</p>
+    </div>
   </WindowFrame>
 </template>
 
 <script>
 import { markRaw, defineAsyncComponent } from "vue";
 
-import WindowFrame from "../../components/modules/WindowFrame.vue";
+import WindowFrame from "@/components/modules/WindowFrame.vue";
 
 export default {
   components: {
@@ -24,11 +18,12 @@ export default {
   data() {
     return {};
   },
-  methods: {},
   mounted() {
-    this.$store.titlebar.setTitlebar({
+    this.$store.titlebar.set({
       hasBackground: false,
-      left: markRaw(defineAsyncComponent(() => import("./Title/Center.vue"))),
+      left: markRaw(
+        defineAsyncComponent(() => import("./_system/TitleBar/Left.vue"))
+      ),
     });
   },
 };

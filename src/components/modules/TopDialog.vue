@@ -8,17 +8,7 @@
       <div
         class="pointer-events-auto mx-auto max-w-xl rounded-b-md border-b border-l border-r border-black/30 bg-gray-800/90 shadow-xl backdrop-blur-xl"
       >
-        <div class="p-5">
-          <p class="text-base font-bold capitalize">
-            <slot name="title"></slot>
-          </p>
-        </div>
-        <div class="px-5 pb-5">
-          <slot name="body"></slot>
-        </div>
-        <div class="flex justify-end space-x-3 border-t border-white/5 p-5">
-          <slot name="footer"></slot>
-        </div>
+        <Component :is="$store.topDialog.component" />
       </div>
     </div>
   </Transition>
@@ -31,7 +21,7 @@
 </template>
 
 <script>
-import { useTopDialogStore } from "../../stores/topDialog";
+import { useTopDialogStore } from "@/stores/topDialog";
 
 export default {
   data() {

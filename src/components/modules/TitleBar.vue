@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { useTitlebarStore } from "../../stores/titlebar";
+import { useTitlebarStore } from "@/stores/titlebar";
 
 export default {
   created() {

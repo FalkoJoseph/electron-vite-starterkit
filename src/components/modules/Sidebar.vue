@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { useSidebarStore } from "../../stores/sidebar";
+import { useSidebarStore } from "@/stores/sidebar";
 
 import VueResizable from "vue-resizable";
 
