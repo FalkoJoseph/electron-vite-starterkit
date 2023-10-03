@@ -138,9 +138,8 @@ export default {
   },
   mounted() {
     this.$store.titlebar.setTitlebar({
-      title: "Home",
-      subTitle: "Components",
       hasBackground: true,
+      center: markRaw(defineAsyncComponent(() => import("./Title/Center.vue"))),
       left: markRaw(defineAsyncComponent(() => import("./Title/Left.vue"))),
       right: markRaw(defineAsyncComponent(() => import("./Title/Right.vue"))),
     });
