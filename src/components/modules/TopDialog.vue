@@ -1,7 +1,7 @@
 <template>
   <Transition name="dialog">
     <div
-      class="pointer-events-none fixed left-0 top-[53px] z-50 w-full"
+      class="pointer-events-none absolute left-0 top-0 z-50 w-full"
       v-if="$store.topDialog.active"
       :class="[warning ? 'wiggle' : '']"
     >
@@ -39,7 +39,6 @@ export default {
       warning: false,
     };
   },
-  computed: {},
   methods: {
     warn() {
       this.warning = true;

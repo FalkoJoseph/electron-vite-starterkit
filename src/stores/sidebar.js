@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useSidebarStore = defineStore("sidebar", {
   state: () => ({
     active: false,
-    width: "250px",
+    width: "216px",
     minWidth: 200,
     maxWidth: 500,
   }),

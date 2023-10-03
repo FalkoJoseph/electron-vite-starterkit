@@ -6,5 +6,5 @@
 }
 
 .card-frame {
-  @apply shadow-3d-light bg-control-light;
+  @apply bg-control-light;
 }

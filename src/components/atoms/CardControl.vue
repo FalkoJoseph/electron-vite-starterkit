@@ -1,6 +1,6 @@
 <template>
   <div class="card group" :class="[active ? 'is-active' : '']">
-    <div class="card-frame flex items-center justify-center">
+    <div class="card-frame flex items-center justify-center shadow">
       <slot></slot>
     </div>
 
@@ -50,10 +50,6 @@ export default {
 .card.is-active {
   & .card-text {
     @apply bg-primary-500;
-  }
-
-  & .card-frame {
-    box-shadow: 0 0 0 2px theme("colors.primary.500");
   }
 }
 

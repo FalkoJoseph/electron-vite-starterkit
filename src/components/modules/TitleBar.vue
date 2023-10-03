@@ -1,36 +1,57 @@
 <template>
   <div
-    class="title-drag relative z-10 flex min-h-[53px] items-center justify-between px-3 text-center text-sm text-white/80 transition-all duration-100 hover:shadow"
+    class="title-drag relative z-10 flex min-h-[53px] items-center justify-between px-3 text-center text-sm text-white/80 transition-shadow duration-100 hover:shadow"
     :class="[
-      hasBorder ? 'border-b border-white/10' : '',
-      hasBackground ? 'border-b border-black bg-gray-700/70' : 'bg-gray-800',
-      subTitle ? 'py-2' : 'p-1',
+      $store.titlebar.hasBorder ? 'border-b border-white/10' : '',
+      $store.titlebar.hasBackground
+        ? 'border-b border-black bg-gray-700/50'
+        : 'border-b border-transparent bg-gray-800/80',
+      $store.titlebar.subTitle ? 'py-2' : 'p-1',
     ]"
   >
     <div
       class="title-actions flex w-1/3 justify-start space-x-2 transition-all duration-150 ease-in-out"
       :class="[$store.sidebar.active ? '' : 'pl-[4.5rem]']"
     >
-      <slot name="left"></slot>
+      <Component :is="$store.titlebar.left" />
     </div>
+
     <div class="w-1/3">
-      <p class="font-bold">{{ title }}</p>
-      <p class="text-xs text-white/50" v-if="subTitle">{{ subTitle }}</p>
+      <template v-if="$store.titlebar.title">
+        <p class="font-bold">
+          {{ $store.titlebar.title }}
+        </p>
+        <p class="text-xs text-white/50" v-if="$store.titlebar.subTitle">
+          {{ $store.titlebar.subTitle }}
+        </p>
+      </template>
     </div>
+
     <div class="title-actions flex w-1/3 justify-end space-x-2">
-      <slot name="right"></slot>
+      <Component :is="$store.titlebar.right" />
     </div>
   </div>
 </template>
 
 <script>
+import { heartOutline, chevronBackOutline, menuOutline } from "ionicons/icons";
+import { IonIcon } from "@ionic/vue";
+
+import { useTitlebarStore } from "../../stores/titlebar";
+
 export default {
-  props: ["title", "subTitle", "hasBorder", "hasBackground"],
   data() {
-    return {};
+    return {
+      heartOutline,
+      chevronBackOutline,
+      menuOutline,
+    };
   },
   computed: {},
   methods: {},
+  created() {
+    this.$store.titlebar = useTitlebarStore();
+  },
 };
 </script>
 

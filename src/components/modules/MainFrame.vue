@@ -4,18 +4,22 @@
     :class="[$store.sidebar.active ? 'has-sidebar-open' : '']"
   >
     <div class="main-wrapper flex h-screen flex-col">
+      <!-- Titlebar -->
+      <title-bar />
+
+      <!-- Window Content -->
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
+import TitleBar from "./TitleBar.vue";
+
 export default {
-  data() {
-    return {};
+  components: {
+    TitleBar,
   },
-  computed: {},
-  methods: {},
 };
 </script>
 

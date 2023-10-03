@@ -12,7 +12,18 @@
         @resize:start="resizeSidebarStart"
         @resize:end="resizeSidebarEnd"
       >
-        <slot name="content"></slot>
+        <div v-if="topPadding" class="title-drag h-[3.25rem]"></div>
+        <div
+          ref="content"
+          @scroll.native="scrollSidebar"
+          class="h-[calc(100%-53px)] overflow-y-auto pb-3 transition-shadow duration-500 ease-in-out"
+          :class="[
+            sidePadding ? 'px-2.5' : '',
+            isScrolled ? 'shadow-line-t-dark' : '',
+          ]"
+        >
+          <slot name="content"></slot>
+        </div>
       </vue-resizable>
     </div>
   </Transition>
@@ -24,14 +35,23 @@ import { useSidebarStore } from "../../stores/sidebar";
 import VueResizable from "vue-resizable";
 
 export default {
+  props: ["topPadding", "sidePadding"],
   components: {
     VueResizable,
   },
   data() {
-    return {};
+    return {
+      isScrolled: false,
+    };
   },
-  computed: {},
   methods: {
+    scrollSidebar() {
+      if (this.$refs.content.scrollTop > 0) {
+        this.isScrolled = true;
+      } else {
+        this.isScrolled = false;
+      }
+    },
     resizeSidebarMove(e) {
       this.$store.sidebar.setWidth(e.width);
     },
@@ -51,6 +71,10 @@ export default {
 <style>
 .sidebar {
   @apply absolute left-0 top-0 z-0 flex h-full;
+}
+
+.resizable-component {
+  @apply h-full !important;
 }
 
 .sidebar-enter-active,

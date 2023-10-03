@@ -40,10 +40,5 @@ export default {
     TopDialog,
     InputControl,
   },
-  data() {
-    return {};
-  },
-  computed: {},
-  methods: {},
 };
 </script>

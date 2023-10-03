@@ -1,34 +1,4 @@
 <template>
-  <!-- Titlebar -->
-  <title-bar
-    title="Dark UI"
-    sub-title="Components"
-    :has-border="false"
-    :has-background="true"
-  >
-    <template #left>
-      <button
-        class="btn btn-transparent btn-icon"
-        @click="$store.sidebar.setActive()"
-      >
-        <ion-icon
-          :icon="chevronBackOutline"
-          v-if="$store.sidebar.active"
-        ></ion-icon>
-        <ion-icon :icon="menuOutline" v-if="!$store.sidebar.active"></ion-icon>
-      </button>
-    </template>
-
-    <template #right>
-      <button class="btn btn-border">Preview</button>
-      <button class="btn btn-secondary">Publish</button>
-      <button class="btn btn-transparent btn-icon active:text-yellow-500">
-        <ion-icon :icon="heartOutline"></ion-icon>
-      </button>
-    </template>
-  </title-bar>
-
-  <!-- Window Frame -->
   <WindowFrame>
     <template #main>
       <div class="space-y-10 p-5">
@@ -109,26 +79,24 @@
 </template>
 
 <script>
+import { markRaw, defineAsyncComponent } from "vue";
+
 import {
   heartOutline,
   searchOutline,
   folderOutline,
   cogOutline,
-  chevronBackOutline,
-  menuOutline,
 } from "ionicons/icons";
 import { IonIcon } from "@ionic/vue";
 
-import TitleBar from "../components/modules/TitleBar.vue";
-import WindowFrame from "../components/modules/WindowFrame.vue";
-import InputControl from "../components/atoms/InputControl.vue";
-import SelectControl from "../components/atoms/SelectControl.vue";
-import CardControl from "../components/atoms/CardControl.vue";
+import WindowFrame from "../../components/modules/WindowFrame.vue";
+import InputControl from "../../components/atoms/InputControl.vue";
+import SelectControl from "../../components/atoms/SelectControl.vue";
+import CardControl from "../../components/atoms/CardControl.vue";
 
 export default {
   components: {
     IonIcon,
-    TitleBar,
     WindowFrame,
     InputControl,
     SelectControl,
@@ -140,8 +108,6 @@ export default {
       searchOutline,
       folderOutline,
       cogOutline,
-      chevronBackOutline,
-      menuOutline,
       slider: 0,
       selectInput: 1,
       activeCard: -1,
@@ -170,6 +136,14 @@ export default {
       window.alert("Saved!");
     },
   },
-  mounted() {},
+  mounted() {
+    this.$store.titlebar.setTitlebar({
+      title: "Home",
+      subTitle: "Components",
+      hasBackground: true,
+      left: markRaw(defineAsyncComponent(() => import("./Title/Left.vue"))),
+      right: markRaw(defineAsyncComponent(() => import("./Title/Right.vue"))),
+    });
+  },
 };
 </script>

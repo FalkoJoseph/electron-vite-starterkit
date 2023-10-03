@@ -1,6 +1,6 @@
 .btn,
 .el-radio-button {
-  @apply inline-block h-7 px-6 rounded-md text-sm font-medium leading-none relative cursor-default transition duration-100 ease-in-out shadow-3d;
+  @apply h-7 px-6 rounded-md text-sm font-medium leading-none relative cursor-default transition duration-100 ease-in-out shadow-3d;
 
   &:focus {
     @apply outline-none;
