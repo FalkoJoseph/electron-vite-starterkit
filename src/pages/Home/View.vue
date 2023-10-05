@@ -140,14 +140,8 @@ export default {
   mounted() {
     this.$store.titlebar.set({
       hasBackground: true,
-      left: markRaw(
-        defineAsyncComponent(() => import("./_system/TitleBar/Left.vue"))
-      ),
-      center: markRaw(
-        defineAsyncComponent(() => import("./_system/TitleBar/Center.vue"))
-      ),
-      right: markRaw(
-        defineAsyncComponent(() => import("./_system/TitleBar/Right.vue"))
+      component: markRaw(
+        defineAsyncComponent(() => import("./_system/TitleBar.vue"))
       ),
     });
   },

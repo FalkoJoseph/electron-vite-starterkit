@@ -25,8 +25,8 @@ export default {
   mounted() {
     this.$store.titlebar.set({
       hasBackground: true,
-      left: markRaw(
-        defineAsyncComponent(() => import("./_system/TitleBar/Left.vue"))
+      component: markRaw(
+        defineAsyncComponent(() => import("./_system/TitleBar.vue"))
       ),
     });
   },

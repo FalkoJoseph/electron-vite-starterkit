@@ -11,6 +11,9 @@
             <li>Keyboard shortcut SDK</li>
             <li>History SDK (previous / backwards)</li>
             <li>Form components / styles</li>
+            <li>Graphs & Charts</li>
+            <li>Storage API</li>
+            <li>Automatic darkmode</li>
           </ul>
         </div>
 
@@ -40,8 +43,8 @@ export default {
   mounted() {
     this.$store.titlebar.set({
       hasBackground: false,
-      left: markRaw(
-        defineAsyncComponent(() => import("./_system/TitleBar/Left.vue"))
+      component: markRaw(
+        defineAsyncComponent(() => import("./_system/TitleBar.vue"))
       ),
     });
   },

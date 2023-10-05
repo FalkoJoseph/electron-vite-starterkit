@@ -9,20 +9,7 @@
       $store.titlebar.subTitle ? 'py-2' : 'p-1',
     ]"
   >
-    <div
-      class="title-actions flex w-1/3 items-center justify-start space-x-2 transition-all duration-150 ease-in-out"
-      :class="[$store.sidebar.active ? '' : 'pl-[4.5rem]']"
-    >
-      <Component :is="$store.titlebar.left" />
-    </div>
-
-    <div class="w-1/3">
-      <Component :is="$store.titlebar.center" />
-    </div>
-
-    <div class="title-actions flex w-1/3 items-center justify-end space-x-2">
-      <Component :is="$store.titlebar.right" />
-    </div>
+    <Component :is="$store.titlebar.component" />
   </div>
 </template>
 
