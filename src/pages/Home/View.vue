@@ -1,14 +1,9 @@
 <template>
   <WindowFrame>
-    <div class="p-5 space-y-10">
-      <div class="flex space-x-5">
+    <div class="space-y-10 p-5">
+      <div class="flex flex-wrap gap-5">
         <button class="btn btn-default" @click="toggleDialog">Dialog</button>
-        <button
-          class="btn btn-border"
-          @click="$store.sidebar.setActive('right')"
-        >
-          Right sidebar
-        </button>
+        <button class="btn btn-border">Restore</button>
         <button class="btn btn-primary">Save</button>
         <button class="btn btn-secondary">Edit</button>
         <button class="btn btn-default btn-icon">

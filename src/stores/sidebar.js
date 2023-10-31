@@ -25,8 +25,8 @@ export const useSidebarStore = defineStore("sidebar", {
       right: 200,
     },
     maxWidth: {
-      left: 500,
-      right: 500,
+      left: 350,
+      right: 350,
     },
     list: [],
     listRight: [],

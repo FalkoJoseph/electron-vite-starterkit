@@ -46,7 +46,8 @@ async function createWindow() {
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     titleBarStyle: 'hidden',
     vibrancy: "sidebar",
-    minWidth: 600,
+    width: 1000,
+    minWidth: 1000,
     minHeight: 600,
     trafficLightPosition: { x: 15, y: 18 },
     webPreferences: {

@@ -20,6 +20,8 @@
         @resize:move="resizeSidebarMove"
         @resize:start="resizeSidebarStart"
         @resize:end="resizeSidebarEnd"
+        :active="resizeHandlers"
+        :disableAttributes="['l']"
       >
         <div v-if="topPadding" class="title-drag h-[3.25rem]"></div>
         <div
@@ -63,6 +65,12 @@ export default {
     VueResizable,
   },
   computed: {
+    resizeHandlers() {
+      const left = ["r"];
+      const right = ["l"];
+
+      return this.position === "left" ? left : right;
+    },
     sidebarWidth() {
       return {
         width: `${this.$store.sidebar.width[this.position]}`,
