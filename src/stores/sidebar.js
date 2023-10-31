@@ -6,9 +6,18 @@ export const useSidebarStore = defineStore("sidebar", {
     activeLeft: false,
     defaultActiveRight: false,
     activeRight: false,
-    width: "216px",
-    minWidth: 200,
-    maxWidth: 500,
+    width: {
+      left: "216px",
+      right: "216px",
+    },
+    minWidth: {
+      left: 200,
+      right: 200,
+    },
+    maxWidth: {
+      left: 500,
+      right: 500,
+    },
     list: [],
     listRight: [],
   }),
@@ -42,8 +51,12 @@ export const useSidebarStore = defineStore("sidebar", {
         this.defaultActiveRight = false;
       }
     },
-    setWidth(width) {
-      this.width = `${width}px`;
+    setWidth(width, position) {
+      if (position === "left") {
+        this.width.left = `${width}px`;
+      } else {
+        this.width.right = `${width}px`;
+      }
     },
     setLeftContent(args) {
       this.list = args.list;

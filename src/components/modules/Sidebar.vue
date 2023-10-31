@@ -12,11 +12,11 @@
           : '',
         position === 'left' ? 'is-left' : 'is-right',
       ]"
-      :style="`width:${$store.sidebar.width};`"
+      :style="sidebarWidth"
     >
       <vue-resizable
-        :minWidth="$store.sidebar.minWidth"
-        :maxWidth="$store.sidebar.maxWidth"
+        :minWidth="$store.sidebar.minWidth[position]"
+        :maxWidth="$store.sidebar.maxWidth[position]"
         @resize:move="resizeSidebarMove"
         @resize:start="resizeSidebarStart"
         @resize:end="resizeSidebarEnd"
@@ -62,6 +62,13 @@ export default {
   components: {
     VueResizable,
   },
+  computed: {
+    sidebarWidth() {
+      return {
+        width: `${this.$store.sidebar.width[this.position]}`,
+      };
+    },
+  },
   data() {
     return {
       isScrolled: false,
@@ -76,7 +83,7 @@ export default {
       }
     },
     resizeSidebarMove(e) {
-      this.$store.sidebar.setWidth(e.width);
+      this.$store.sidebar.setWidth(e.width, this.position);
     },
     resizeSidebarStart() {
       document.body.classList.add("resize-active");
@@ -100,9 +107,11 @@ export default {
   }
 
   &.is-right {
-    @apply right-0;
+    @apply right-0 border-l border-black/10 dark:border-black/50;
 
-    @apply border-l border-black/10 dark:border-black/50;
+    & .resizable-component {
+      @apply left-auto !important;
+    }
   }
 
   &:not(.default-open) {

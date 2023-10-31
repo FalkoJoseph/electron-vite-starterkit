@@ -40,17 +40,17 @@ export default {
   }
 
   &.has-sidebar-left-open {
-    margin-left: v-bind("$store.sidebar.width");
+    margin-left: v-bind("$store.sidebar.width.left");
 
     @apply border-l border-black/10 dark:border-black/50;
 
     & .main-wrapper {
-      padding-right: v-bind("$store.sidebar.width");
+      padding-right: v-bind("$store.sidebar.width.left");
     }
   }
 
   &.has-sidebar-right-open {
-    width: calc(100% - v-bind("$store.sidebar.width"));
+    width: calc(100% - v-bind("$store.sidebar.width.right"));
   }
 }
 </style>
