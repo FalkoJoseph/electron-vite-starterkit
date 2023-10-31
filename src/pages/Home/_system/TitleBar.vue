@@ -25,11 +25,8 @@
   </TitleBarItem>
 
   <TitleBarItem class="w-1/3" :actions="true">
-    <div class="hidden items-center justify-end space-x-2 lg:flex">
-      <button
-        class="btn btn-border hidden lg:block"
-        @click="$store.sidebar.setActive('right')"
-      >
+    <div class="hidden items-center justify-end space-x-2 xl:flex">
+      <button class="btn btn-border" @click="$store.sidebar.setActive('right')">
         Layers
       </button>
       <button class="btn btn-secondary">Publish</button>

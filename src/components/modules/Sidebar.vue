@@ -33,7 +33,7 @@
             isScrolled ? 'shadow-line-t-dark' : '',
           ]"
         >
-          <div class="h-full space-y-5" v-if="position === 'left'">
+          <div class="h-full space-y-3" v-if="position === 'left'">
             <Component
               :is="item.component"
               v-for="(item, index) in $store.sidebar.list"
@@ -41,7 +41,7 @@
             />
           </div>
 
-          <div class="h-full space-y-5" v-if="position === 'right'">
+          <div class="h-full space-y-3" v-if="position === 'right'">
             <Component
               :is="item.component"
               v-for="(item, index) in $store.sidebar.listRight"
@@ -123,7 +123,7 @@ export default {
   }
 
   &:not(.default-open) {
-    transition: transform 150ms ease-in-out;
+    transition: transform 150ms linear;
   }
 }
 
@@ -132,7 +132,7 @@ export default {
 }
 
 .sidebar-leave-active {
-  transition: transform 150ms ease-in-out;
+  transition: transform 150ms linear;
 }
 
 .sidebar-enter-from,

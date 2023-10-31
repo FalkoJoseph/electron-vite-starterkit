@@ -32,10 +32,10 @@ export default {
 <style>
 .main {
   &:not(.default-open) {
-    transition: margin 150ms ease-in-out, width 150ms ease-in-out;
+    transition: margin 150ms linear, width 150ms linear;
 
     & .main-wrapper {
-      transition: padding 150ms ease-in-out, width 150ms ease-in-out;
+      transition: padding 150ms linear, width 150ms linear;
     }
   }
 
