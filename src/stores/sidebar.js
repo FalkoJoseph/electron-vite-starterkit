@@ -6,6 +6,16 @@ export const useSidebarStore = defineStore("sidebar", {
     activeLeft: false,
     defaultActiveRight: false,
     activeRight: false,
+    padding: {
+      left: {
+        top: true,
+        side: true,
+      },
+      right: {
+        top: true,
+        side: true,
+      },
+    },
     width: {
       left: "216px",
       right: "216px",
@@ -56,6 +66,15 @@ export const useSidebarStore = defineStore("sidebar", {
         this.width.left = `${width}px`;
       } else {
         this.width.right = `${width}px`;
+      }
+    },
+    setPadding(padding, position) {
+      if (position === "left") {
+        this.padding.left.top = padding.top;
+        this.padding.left.side = padding.side;
+      } else {
+        this.padding.right.top = padding.top;
+        this.padding.right.side = padding.side;
       }
     },
     setLeftContent(args) {

@@ -4,8 +4,8 @@
     <!-- Left sidebar -->
     <sidebar
       position="left"
-      :top-padding="sidebarLeftTopPadding"
-      :side-padding="sidebarLeftSidePadding"
+      :top-padding="$store.sidebar.padding.left.top"
+      :side-padding="$store.sidebar.padding.left.side"
     />
 
     <!-- Main -->
@@ -16,13 +16,15 @@
     <!-- Right sidebar -->
     <sidebar
       position="right"
-      :top-padding="sidebarRightTopPadding"
-      :side-padding="sidebarRightSidePadding"
+      :top-padding="$store.sidebar.padding.right.top"
+      :side-padding="$store.sidebar.padding.right.side"
     />
   </div>
 </template>
 
 <script>
+import { useSidebarStore } from "@/stores/sidebar";
+
 import MainFrame from "./MainFrame.vue";
 import Sidebar from "./Sidebar.vue";
 
@@ -36,6 +38,9 @@ export default {
   components: {
     MainFrame,
     Sidebar,
+  },
+  created() {
+    this.$store.sidebar = useSidebarStore();
   },
 };
 </script>

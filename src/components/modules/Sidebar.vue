@@ -5,7 +5,7 @@
         ($store.sidebar.activeLeft && position === 'left') ||
         ($store.sidebar.activeRight && position === 'right')
       "
-      class="w-full h-full sidebar"
+      class="sidebar h-full w-full"
       :class="[
         $store.sidebar.defaultActiveLeft || $store.sidebar.defaultActiveRight
           ? 'default-open'
@@ -115,12 +115,16 @@ export default {
   }
 
   &:not(.default-open) {
-    transition: all 150ms ease-in-out;
+    transition: transform 150ms ease-in-out;
   }
 }
 
 .resizable-component {
   @apply h-full !important;
+}
+
+.sidebar-leave-active {
+  transition: transform 150ms ease-in-out;
 }
 
 .sidebar-enter-from,

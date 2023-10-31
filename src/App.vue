@@ -1,10 +1,5 @@
 <template>
-  <viewport
-    :sidebar-left-top-padding="true"
-    :sidebar-left-side-padding="true"
-    :sidebar-right-top-padding="true"
-    :sidebar-right-side-padding="true"
-  />
+  <viewport />
 </template>
 
 <script>
@@ -23,14 +18,14 @@ export default {
           id: "favorieten",
           component: markRaw(
             defineAsyncComponent(() =>
-              import("./globals/sidebar/Favorieten.vue")
+              import("@/globals/sidebar/Favorieten.vue")
             )
           ),
         },
         {
           id: "podcasts",
           component: markRaw(
-            defineAsyncComponent(() => import("./globals/sidebar/Podcasts.vue"))
+            defineAsyncComponent(() => import("@/globals/sidebar/Podcasts.vue"))
           ),
         },
       ],
@@ -41,7 +36,7 @@ export default {
         {
           id: "albums",
           component: markRaw(
-            defineAsyncComponent(() => import("./globals/sidebar/Albums.vue"))
+            defineAsyncComponent(() => import("@/globals/sidebar/Albums.vue"))
           ),
         },
       ],

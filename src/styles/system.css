@@ -8,7 +8,7 @@ body {
   &.resize-active {
     & .main,
     & .main-wrapper {
-      transition: none;
+      transition: none !important;
     }
   }
 }

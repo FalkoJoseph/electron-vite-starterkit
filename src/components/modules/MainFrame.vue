@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative z-10 w-full h-screen main"
+    class="main relative z-10 h-screen w-full"
     :class="[
       $store.sidebar.activeLeft ? 'has-sidebar-left-open' : '',
       $store.sidebar.activeRight ? 'has-sidebar-right-open' : '',
@@ -9,7 +9,7 @@
         : '',
     ]"
   >
-    <div class="flex flex-col h-screen main-wrapper">
+    <div class="main-wrapper flex h-screen flex-col">
       <!-- Titlebar -->
       <title-bar />
 
