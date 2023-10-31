@@ -1,8 +1,17 @@
 <template>
   <Transition name="sidebar">
     <div
-      class="sidebar h-full w-full"
-      v-if="$store.sidebar.active"
+      v-if="
+        ($store.sidebar.activeLeft && position === 'left') ||
+        ($store.sidebar.activeRight && position === 'right')
+      "
+      class="w-full h-full sidebar"
+      :class="[
+        $store.sidebar.defaultActiveLeft || $store.sidebar.defaultActiveRight
+          ? 'default-open'
+          : '',
+        position === 'left' ? 'is-left' : 'is-right',
+      ]"
       :style="`width:${$store.sidebar.width};`"
     >
       <vue-resizable
@@ -22,7 +31,21 @@
             isScrolled ? 'shadow-line-t-dark' : '',
           ]"
         >
-          <slot name="content"></slot>
+          <div class="h-full space-y-5" v-if="position === 'left'">
+            <Component
+              :is="item.component"
+              v-for="(item, index) in $store.sidebar.list"
+              :key="index"
+            />
+          </div>
+
+          <div class="h-full space-y-5" v-if="position === 'right'">
+            <Component
+              :is="item.component"
+              v-for="(item, index) in $store.sidebar.listRight"
+              :key="index"
+            />
+          </div>
         </div>
       </vue-resizable>
     </div>
@@ -35,7 +58,7 @@ import { useSidebarStore } from "@/stores/sidebar";
 import VueResizable from "vue-resizable";
 
 export default {
-  props: ["topPadding", "sidePadding"],
+  props: ["topPadding", "sidePadding", "position"],
   components: {
     VueResizable,
   },
@@ -70,20 +93,35 @@ export default {
 
 <style>
 .sidebar {
-  @apply absolute left-0 top-0 z-0 flex h-full;
+  @apply absolute top-0 z-50 flex h-full;
+
+  &.is-left {
+    @apply left-0;
+  }
+
+  &.is-right {
+    @apply right-0;
+
+    @apply border-l border-black/10 dark:border-black/50;
+  }
+
+  &:not(.default-open) {
+    transition: all 150ms ease-in-out;
+  }
 }
 
 .resizable-component {
   @apply h-full !important;
 }
 
-.sidebar-enter-active,
-.sidebar-leave-active {
-  transition: all 150ms ease-in-out;
-}
-
 .sidebar-enter-from,
 .sidebar-leave-to {
-  @apply -translate-x-[100%];
+  &.is-left {
+    @apply -translate-x-[100%];
+  }
+
+  &.is-right {
+    @apply translate-x-[100%];
+  }
 }
 </style>

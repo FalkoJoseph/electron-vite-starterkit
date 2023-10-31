@@ -1,59 +1,51 @@
 <template>
-  <div class="relative">
-    <!-- Sidebar -->
-    <sidebar :top-padding="true" :side-padding="true">
-      <template #content>
-        <p class="text-xxs mb-1 ml-1.5 font-bold opacity-30">Favorieten</p>
-        <ul class="text-tiny">
-          <li>
-            <RouterLink draggable="false" :to="{ name: 'home' }">
-              Home
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink draggable="false" :to="{ name: 'wishlist' }">
-              Wishlist
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink draggable="false" :to="{ name: 'media' }">
-              Media
-            </RouterLink>
-          </li>
-        </ul>
-        <div class="h-[500px]"></div>
-      </template>
-    </sidebar>
-
-    <!-- Main -->
-    <main-frame>
-      <router-view />
-    </main-frame>
-  </div>
+  <viewport
+    :sidebar-left-top-padding="true"
+    :sidebar-left-side-padding="true"
+    :sidebar-right-top-padding="true"
+    :sidebar-right-side-padding="true"
+  />
 </template>
 
 <script>
-import MainFrame from "./components/modules/MainFrame.vue";
-import Sidebar from "./components/modules/Sidebar.vue";
+import { markRaw, defineAsyncComponent } from "vue";
+
+import { Viewport } from "@/components/modules";
 
 export default {
   components: {
-    MainFrame,
-    Sidebar,
+    Viewport,
+  },
+  mounted() {
+    this.$store.sidebar.setLeftContent({
+      list: [
+        {
+          id: "favorieten",
+          component: markRaw(
+            defineAsyncComponent(() =>
+              import("./globals/sidebar/Favorieten.vue")
+            )
+          ),
+        },
+        {
+          id: "podcasts",
+          component: markRaw(
+            defineAsyncComponent(() => import("./globals/sidebar/Podcasts.vue"))
+          ),
+        },
+      ],
+    });
+
+    this.$store.sidebar.setRightContent({
+      list: [
+        {
+          id: "albums",
+          component: markRaw(
+            defineAsyncComponent(() => import("./globals/sidebar/Albums.vue"))
+          ),
+        },
+      ],
+    });
   },
 };
 </script>
-
-<style>
-ul {
-  @apply space-y-0.5;
-}
-
-li a {
-  @apply block truncate rounded-md px-2 py-1 font-medium;
-
-  &.router-link-active {
-    @apply bg-white/10;
-  }
-}
-</style>

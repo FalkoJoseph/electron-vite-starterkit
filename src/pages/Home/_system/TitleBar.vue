@@ -1,32 +1,37 @@
 <template>
   <TitleBarItem
-    class="flex w-1/3 items-center justify-start space-x-2"
+    class="flex items-center justify-start w-1/3 space-x-2"
     :align-left="true"
     :actions="true"
   >
     <button
       class="btn btn-transparent btn-icon"
-      @click="$store.sidebar.setActive()"
+      @click="$store.sidebar.setActive('left')"
     >
       <ion-icon
         :icon="chevronBackOutline"
-        v-if="$store.sidebar.active"
+        v-if="$store.sidebar.activeLeft"
       ></ion-icon>
-      <ion-icon :icon="menuOutline" v-if="!$store.sidebar.active"></ion-icon>
+      <ion-icon
+        :icon="menuOutline"
+        v-if="!$store.sidebar.activeLeft"
+      ></ion-icon>
     </button>
   </TitleBarItem>
 
   <TitleBarItem class="w-1/3">
     <p class="font-bold">Home</p>
-    <p class="text-xs text-white/50">Components</p>
+    <p class="text-xs opacity-70">Components</p>
   </TitleBarItem>
 
-  <TitleBarItem class="flex w-1/3 items-center justify-end space-x-2">
-    <button class="btn btn-border hidden lg:block">Preview</button>
-    <button class="btn btn-secondary">Publish</button>
-    <button class="btn btn-transparent btn-icon active:text-yellow-500">
-      <ion-icon :icon="heartOutline"></ion-icon>
-    </button>
+  <TitleBarItem class="w-1/3" :actions="true">
+    <div class="items-center justify-end hidden space-x-2 lg:flex">
+      <button class="hidden btn btn-border lg:block">Preview</button>
+      <button class="btn btn-secondary">Publish</button>
+      <button class="btn btn-transparent btn-icon dark:active:text-yellow-500">
+        <ion-icon :icon="heartOutline"></ion-icon>
+      </button>
+    </div>
   </TitleBarItem>
 </template>
 
@@ -34,7 +39,7 @@
 import { chevronBackOutline, menuOutline, heartOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/vue";
 
-import TitleBarItem from "@/components/modules/TitleBarItem.vue";
+import { TitleBarItem } from "@/components/modules";
 
 export default {
   components: {

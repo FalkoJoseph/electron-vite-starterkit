@@ -1,6 +1,7 @@
 <template>
   <div class="select">
     <select
+      class="bg-control shadow-3d"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     >
@@ -38,7 +39,7 @@ export default {
 
 <style>
 .select {
-  @apply relative inline-block overflow-hidden rounded-md;
+  @apply relative inline-block rounded-md;
 
   & .select-icon {
     @apply pointer-events-none absolute right-0 top-0 mr-[0.1rem] flex h-full w-5 scale-75 items-center rounded-md bg-primary-500 leading-none;
@@ -57,10 +58,10 @@ export default {
   }
 
   & select {
-    @apply h-7 w-full appearance-none rounded-md border-0 px-3 pb-0.5 pr-9 text-sm font-medium focus:outline-none;
+    @apply h-7 w-full appearance-none rounded-md border-0 px-3 pb-0.5 pr-9 text-sm font-medium text-black focus:outline-none dark:text-white;
 
     &::placeholder {
-      @apply text-white/40;
+      @apply text-black/40 dark:text-white/40;
     }
   }
 }

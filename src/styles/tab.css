@@ -1,5 +1,5 @@
 .el-radio-group {
-  @apply space-x-[1px] rounded-md;
+  @apply rounded-md;
 
   & .el-radio-button:first-child {
     @apply rounded-l-md;
@@ -18,7 +18,7 @@
     }
 
     & .el-radio-button__inner {
-      @apply p-0 bg-transparent border-0 shadow-none transition-none text-white/50 cursor-default !important;
+      @apply p-0 bg-transparent border-0 shadow-none transition-none text-black/80 dark:text-white/50 cursor-default !important;
     }
   }
 }

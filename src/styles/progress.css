@@ -7,3 +7,11 @@
     @apply bg-primary-500;
   }
 }
+
+@media (prefers-color-scheme: light) {
+  .el-progress {
+    & .el-progress-bar__outer {
+      @apply bg-black/10 shadow-none;
+    }
+  }
+}

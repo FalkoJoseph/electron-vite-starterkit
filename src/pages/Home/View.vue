@@ -1,11 +1,16 @@
 <template>
   <WindowFrame>
-    <div class="space-y-10 p-5">
+    <div class="p-5 space-y-10">
       <div class="flex space-x-5">
         <button class="btn btn-default" @click="toggleDialog">Dialog</button>
+        <button
+          class="btn btn-border"
+          @click="$store.sidebar.setActive('right')"
+        >
+          Right sidebar
+        </button>
         <button class="btn btn-primary">Save</button>
         <button class="btn btn-secondary">Edit</button>
-        <button class="btn btn-border">Restore</button>
         <button class="btn btn-default btn-icon">
           <ion-icon :icon="cogOutline"></ion-icon>
         </button>
@@ -19,19 +24,24 @@
         <el-radio-button label="New York" />
         <el-radio-button label="Washington" />
         <el-radio-button label="Los Angeles" />
-        <el-radio-button label="Chicago" />
       </el-radio-group>
 
-      <div class="flex space-x-10">
-        <input-control placeholder="Search..." v-model="search" />
+      <div class="flex space-x-5">
+        <div>
+          <input-control placeholder="Search..." v-model="search" />
+        </div>
 
-        <input-control
-          placeholder="Add contact"
-          :icon="searchOutline"
-          button-text="Save"
-          :button-action="save"
-          v-model="contact"
-        />
+        <div>
+          <input-control
+            placeholder="Add contact"
+            :icon="searchOutline"
+            v-model="contact"
+          />
+        </div>
+
+        <div class="w-32">
+          <el-slider v-model="slider" :show-tooltip="false" />
+        </div>
       </div>
 
       <div>
@@ -45,27 +55,6 @@
       <el-switch v-model="switchVal" />
 
       <el-progress :percentage="50" :indeterminate="true" :show-text="false" />
-
-      <el-slider v-model="slider" :show-tooltip="false" />
-
-      <div class="grid grid-cols-2 gap-10">
-        <CardControl
-          v-for="(card, index) in cards"
-          :key="index"
-          :active="activeCard === index"
-          @click="toggleCard(index)"
-          :label="card.label"
-          :subtitle="card.subtitle"
-        >
-          <div class="p-8 leading-none">
-            <ion-icon
-              :icon="folderOutline"
-              class="text-5xl group-active:text-primary-500"
-              :class="[activeCard === index ? 'text-primary-500' : '']"
-            ></ion-icon>
-          </div>
-        </CardControl>
-      </div>
     </div>
   </WindowFrame>
 </template>
@@ -81,10 +70,7 @@ import {
 } from "ionicons/icons";
 import { IonIcon } from "@ionic/vue";
 
-import WindowFrame from "@/components/modules/WindowFrame.vue";
-import InputControl from "@/components/atoms/InputControl.vue";
-import SelectControl from "@/components/atoms/SelectControl.vue";
-import CardControl from "@/components/atoms/CardControl.vue";
+import { WindowFrame, InputControl, SelectControl } from "@/components/modules";
 
 export default {
   components: {
@@ -92,7 +78,6 @@ export default {
     WindowFrame,
     InputControl,
     SelectControl,
-    CardControl,
   },
   data() {
     return {
@@ -102,22 +87,10 @@ export default {
       cogOutline,
       slider: 0,
       selectInput: 1,
-      activeCard: -1,
       switchVal: false,
       radio1: "New York",
       search: "",
       contact: "",
-      cards: [
-        {
-          content: "Hello",
-          label: "Lorem ipsum",
-          subtitle: "10 KB",
-        },
-        {
-          content: "World",
-          label: "Dolor sit amet",
-        },
-      ],
     };
   },
   methods: {
@@ -130,9 +103,6 @@ export default {
         ),
       });
     },
-    toggleCard(index) {
-      this.activeCard = index;
-    },
     save() {
       window.alert("Saved!");
     },
@@ -144,6 +114,13 @@ export default {
         defineAsyncComponent(() => import("./_system/TitleBar.vue"))
       ),
     });
+
+    this.$store.window.set({
+      hasBackground: true,
+    });
+
+    this.$store.sidebar.show("left");
+    this.$store.sidebar.show("right");
   },
 };
 </script>

@@ -6,13 +6,16 @@
   >
     <button
       class="btn btn-transparent btn-icon"
-      @click="$store.sidebar.setActive()"
+      @click="$store.sidebar.setActive('left')"
     >
       <ion-icon
         :icon="chevronBackOutline"
-        v-if="$store.sidebar.active"
+        v-if="$store.sidebar.activeLeft"
       ></ion-icon>
-      <ion-icon :icon="menuOutline" v-if="!$store.sidebar.active"></ion-icon>
+      <ion-icon
+        :icon="menuOutline"
+        v-if="!$store.sidebar.activeLeft"
+      ></ion-icon>
     </button>
 
     <p class="font-bold">Hello World</p>
@@ -23,7 +26,7 @@
 import { chevronBackOutline, menuOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/vue";
 
-import TitleBarItem from "@/components/modules/TitleBarItem.vue";
+import { TitleBarItem } from "@/components/modules";
 
 export default {
   components: {

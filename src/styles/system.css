@@ -1,7 +1,7 @@
 /* Body */
 
 body {
-  @apply select-none antialiased text-sm text-white overflow-hidden;
+  @apply select-none antialiased text-sm text-black dark:text-white overflow-hidden;
 
   -webkit-user-drag: none;
 
@@ -21,11 +21,11 @@ a {
 /* Backgrounds */
 
 .bg-control {
-  @apply bg-white/10;
+  @apply bg-white dark:bg-white/10;
 }
 
 .bg-control-light {
-  @apply bg-white/[0.03];
+  @apply bg-white/[0.03] dark:bg-white/[0.03];
 }
 
 /* Shadows */
@@ -37,11 +37,6 @@ a {
 .shadow-3d {
   box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.1),
       0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.shadow-3d-light {
-  box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.08),
-      0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .shadow-depth {
@@ -63,4 +58,20 @@ img {
 
 .text-tiny {
   @apply text-[0.8rem];
+}
+
+@media (prefers-color-scheme: light) {
+  .shadow-line-t-dark {
+    box-shadow: inset 0 1px 0 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .shadow-3d {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04),
+        0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-depth {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 1px 1px rgba(0, 0, 0, 0.04);
+  }
 }

@@ -1,8 +1,6 @@
 <template>
   <WindowFrame>
     <div class="p-5">
-      <p class="mb-10">Creativity is just connecting things - Steve Jobs</p>
-
       <div class="space-y-5">
         <div>
           <p><strong>Features</strong></p>
@@ -13,14 +11,18 @@
             <li>Form components / styles</li>
             <li>Graphs & Charts</li>
             <li>Storage API</li>
-            <li>Automatic darkmode</li>
+            <li>✅ Automatic darkmode</li>
           </ul>
         </div>
 
-        <div>
+        <div class="hidden">
           <p><strong>Apps</strong></p>
           <ul class="ml-3 list-disc">
-            <li>GPT-3 app</li>
+            <li>GPT-3 todo app</li>
+            <li>Movie release watcher (notifications, calendar)</li>
+            <li>Movie trailers</li>
+            <li>Ember App (Realmac)</li>
+            <li>Tailwind shade generator</li>
           </ul>
         </div>
       </div>
@@ -31,7 +33,7 @@
 <script>
 import { markRaw, defineAsyncComponent } from "vue";
 
-import WindowFrame from "@/components/modules/WindowFrame.vue";
+import { WindowFrame } from "@/components/modules";
 
 export default {
   components: {
@@ -47,6 +49,12 @@ export default {
         defineAsyncComponent(() => import("./_system/TitleBar.vue"))
       ),
     });
+
+    this.$store.window.set({
+      hasBackground: false,
+    });
+
+    this.$store.sidebar.hide("right");
   },
 };
 </script>

@@ -1,5 +1,5 @@
 .el-switch {
-  @apply h-5 !important;
+  @apply h-7 !important;
 
   &.is-checked .el-switch__core {
     @apply bg-primary-500 !important;
@@ -10,10 +10,17 @@
   }
 
   & .el-switch__core {
-    @apply h-7 min-w-[50px] rounded-full border-0 cursor-default bg-control shadow-3d;
+    @apply h-7 min-w-[50px] rounded-full border-0 cursor-default bg-black/10 dark:bg-white/10 shadow-3d;
 
     & .el-switch__action {
       @apply h-5 w-5 left-1 shadow;
     }
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  .el-switch .el-switch__core {
+    @apply shadow-none !important;
   }
 }

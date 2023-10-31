@@ -1,9 +1,9 @@
 <template>
   <div
-    class="transition-all duration-150 ease-in-out"
     :class="[
-      $store.sidebar.active && alignLeft ? '' : 'pl-[4.5rem]',
+      $store.sidebar.activeLeft && alignLeft ? '' : 'pl-[4.5rem]',
       actions ? 'title-actions' : '',
+      alignLeft ? 'transition-all duration-150 ease-in-out' : '',
     ]"
   >
     <slot></slot>

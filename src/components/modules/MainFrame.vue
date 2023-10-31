@@ -1,9 +1,15 @@
 <template>
   <div
-    class="main relative z-10 h-screen w-full"
-    :class="[$store.sidebar.active ? 'has-sidebar-open' : '']"
+    class="relative z-10 w-full h-screen main"
+    :class="[
+      $store.sidebar.activeLeft ? 'has-sidebar-left-open' : '',
+      $store.sidebar.activeRight ? 'has-sidebar-right-open' : '',
+      $store.sidebar.defaultActiveLeft || $store.sidebar.defaultActiveRight
+        ? 'default-open'
+        : '',
+    ]"
   >
-    <div class="main-wrapper flex h-screen flex-col">
+    <div class="flex flex-col h-screen main-wrapper">
       <!-- Titlebar -->
       <title-bar />
 
@@ -25,22 +31,26 @@ export default {
 
 <style>
 .main {
-  transition: margin 150ms ease-in-out;
+  &:not(.default-open) {
+    transition: margin 150ms ease-in-out, width 150ms ease-in-out;
 
-  & .main-wrapper {
-    transition: padding 150ms ease-in-out;
+    & .main-wrapper {
+      transition: padding 150ms ease-in-out, width 150ms ease-in-out;
+    }
   }
 
-  &.has-sidebar-open {
+  &.has-sidebar-left-open {
     margin-left: v-bind("$store.sidebar.width");
+
+    @apply border-l border-black/10 dark:border-black/50;
 
     & .main-wrapper {
       padding-right: v-bind("$store.sidebar.width");
     }
+  }
 
-    @apply border-l border-black/50;
-
-    box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.05);
+  &.has-sidebar-right-open {
+    width: calc(100% - v-bind("$store.sidebar.width"));
   }
 }
 </style>

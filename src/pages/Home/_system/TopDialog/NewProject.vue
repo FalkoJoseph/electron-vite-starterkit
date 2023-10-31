@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-end space-x-3 border-t border-white/5 p-5">
+  <div class="flex justify-end p-5 space-x-3 border-t border-white/5">
     <button class="btn btn-default" @click="$store.topDialog.hide()">
       Cancel
     </button>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import InputControl from "@/components/atoms/InputControl.vue";
+import { InputControl } from "@/components/modules";
 
 export default {
   components: {

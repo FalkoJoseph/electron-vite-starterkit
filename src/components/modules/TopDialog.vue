@@ -1,12 +1,12 @@
 <template>
   <Transition name="dialog">
     <div
-      class="pointer-events-none absolute left-0 top-0 z-50 w-full"
+      class="absolute top-0 left-0 z-50 w-full pointer-events-none"
       v-if="$store.topDialog.active"
       :class="[warning ? 'wiggle' : '']"
     >
       <div
-        class="pointer-events-auto mx-auto max-w-xl rounded-b-md border-b border-l border-r border-black/30 bg-gray-800/90 shadow-xl backdrop-blur-xl"
+        class="max-w-xl mx-auto border-b border-l border-r shadow-xl pointer-events-auto rounded-b-md border-black/20 bg-white/70 backdrop-blur-xl dark:border-black/30 dark:bg-gray-800/90"
       >
         <Component :is="$store.topDialog.component" />
       </div>
@@ -14,7 +14,7 @@
   </Transition>
 
   <div
-    class="fixed left-0 top-0 z-40 h-full w-full"
+    class="fixed top-0 left-0 z-40 w-full h-full"
     v-if="$store.topDialog.active"
     @click="warn"
   ></div>

@@ -1,11 +1,13 @@
 <template>
   <div
-    class="title-drag relative z-10 flex min-h-[53px] items-center justify-between px-3 text-center text-sm text-white/80 transition-shadow duration-100 hover:shadow"
+    class="title-drag relative z-10 flex min-h-[53px] items-center justify-between px-3 text-center text-sm text-black/80 transition-shadow duration-100 dark:text-white/80 dark:hover:shadow"
     :class="[
-      $store.titlebar.hasBorder ? 'border-b border-white/10' : '',
+      $store.titlebar.hasBorder
+        ? 'border-b border-black/10 dark:border-white/10'
+        : '',
       $store.titlebar.hasBackground
-        ? 'border-b border-black bg-gray-700/50'
-        : 'border-b border-transparent bg-gray-800/80',
+        ? 'border-b border-black/10 bg-white/50 dark:border-black dark:bg-gray-700/50'
+        : '',
       $store.titlebar.subTitle ? 'py-2' : 'p-1',
     ]"
   >

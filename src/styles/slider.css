@@ -1,6 +1,8 @@
 .el-slider {
   --el-slider-height: 3px !important;
-  --el-slider-button-size: 12px !important;
+  --el-slider-button-size: 18px !important;
+
+  @apply min-w-[50px];
 
   & .el-slider__runway {
     @apply bg-control shadow-3d cursor-default;
@@ -16,9 +18,7 @@
   }
 
   & .el-slider__button {
-    @apply bg-white border-none -mt-0.5;
-
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5) !important;
+    @apply bg-white border-none -mt-1 shadow;
 
     &.el-slider__button.dragging, 
     &.hover, 
@@ -26,9 +26,21 @@
       @apply scale-100 cursor-default;
     }
 
-    &:active,
-    &.dragging {
-      @apply bg-gray-400;
+    &:active {
+      @apply bg-gray-100 dark:bg-gray-400;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .el-slider {
+    & .el-slider__button {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    & .el-slider__runway {
+      @apply bg-black/10 shadow-none;
     }
   }
 }
