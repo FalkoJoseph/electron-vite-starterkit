@@ -27,7 +27,7 @@
     }
 
     &:active {
-      @apply bg-gray-100 dark:bg-gray-400;
+      @apply bg-neutral-100 dark:bg-neutral-400;
     }
   }
 }

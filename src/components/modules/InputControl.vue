@@ -39,7 +39,7 @@ export default {
   }
 
   & input {
-    @apply h-7 w-full appearance-none rounded-md border-0 bg-white px-3 pb-0.5 text-sm font-medium focus:outline-none dark:bg-gray-700/80;
+    @apply h-7 w-full appearance-none rounded-md border-0 bg-white px-3 pb-0.5 text-sm font-medium focus:outline-none dark:bg-neutral-700/80;
 
     &:focus {
       box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.1),

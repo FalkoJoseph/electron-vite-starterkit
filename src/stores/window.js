@@ -4,7 +4,7 @@ export const useWindowStore = defineStore("window", {
   state: () => ({
     hasBackground: true,
     background: "",
-    defaultBackground: "bg-white dark:bg-gray-800/80",
+    defaultBackground: "bg-white dark:bg-neutral-800/80",
   }),
   getters: {
     getBackground() {

@@ -1,6 +1,6 @@
 <template>
   <TitleBarItem
-    class="flex w-1/3 items-center justify-start space-x-2"
+    class="flex items-center justify-start w-1/3 space-x-2"
     :align-left="true"
     :actions="true"
   >
@@ -25,7 +25,7 @@
   </TitleBarItem>
 
   <TitleBarItem class="w-1/3" :actions="true">
-    <div class="hidden items-center justify-end space-x-2 xl:flex">
+    <div class="items-center justify-end hidden space-x-2 xl:flex">
       <button class="btn btn-border" @click="$store.sidebar.setActive('right')">
         Layers
       </button>

@@ -5,22 +5,25 @@
         <div>
           <p><strong>Features</strong></p>
           <ul class="ml-3 list-disc">
-            <li>Podcast app style player controls</li>
-            <li>Keyboard shortcut SDK</li>
+            <li>Command pallette (default UI + autocomplete API & SDK)</li>
+            <li>Keyboard shortcut SDK (ShortKit)</li>
             <li>History SDK (previous / backwards)</li>
-            <li>Form components / styles</li>
-            <li>Graphs & Charts</li>
-            <li>Storage API</li>
+            <li>Graphs & Charts (ChartKit)</li>
+            <li>Storage API (StorageKit)</li>
+            <li>Native UI video & audio player (MediaKit)</li>
+            <li>API to interact with native Node.js functions (NativeKit)</li>
             <li>✅ Automatic darkmode</li>
           </ul>
         </div>
 
-        <div class="hidden">
+        <div>
           <p><strong>Apps</strong></p>
           <ul class="ml-3 list-disc">
             <li>GPT-3 todo app</li>
+            <li>Basic Notion clone with unique features</li>
+            <li>Invoice/estimate designer</li>
             <li>Movie release watcher (notifications, calendar)</li>
-            <li>Movie trailers</li>
+            <li>Beautiful movie trailers</li>
             <li>Ember App (Realmac)</li>
             <li>Tailwind shade generator</li>
           </ul>

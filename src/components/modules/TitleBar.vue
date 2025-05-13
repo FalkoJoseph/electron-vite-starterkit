@@ -6,7 +6,7 @@
         ? 'border-b border-black/10 dark:border-white/10'
         : '',
       $store.titlebar.hasBackground
-        ? 'border-b border-black/10 bg-white/50 dark:border-black dark:bg-gray-700/50'
+        ? 'border-b border-black/10 bg-white/50 dark:border-black dark:bg-neutral-700/50'
         : '',
       $store.titlebar.subTitle ? 'py-2' : 'p-1',
     ]"

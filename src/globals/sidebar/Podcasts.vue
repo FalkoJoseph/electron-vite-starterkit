@@ -3,12 +3,12 @@
     <ul>
       <li>
         <RouterLink draggable="false" :to="{ name: 'media' }">
-          <SidebarItem title="Welcome to the AA" />
+          <SidebarItem title="Het Kwartier" />
         </RouterLink>
       </li>
       <li>
         <RouterLink draggable="false" :to="{ name: 'media' }">
-          <SidebarItem title="NoSleep" />
+          <SidebarItem title="VRT NWS" />
         </RouterLink>
       </li>
     </ul>
